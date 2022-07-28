@@ -19,11 +19,29 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path='/Login' element={<Login />}></Route>
-        <Route path='/Signup' element={<Signup />} ></Route>
-        <Route path='/Teacher' element={<Teacher />}></Route>
-        <Route path='/Student' element={<Student />}></Route>
+        {!user.loggedIn && (
+          <>
+            <Route path='/Login' element={<Login />}></Route>
+            <Route path='/Signup' element={<Signup />} ></Route>
+          </>
+        )}
+
+        {user.loggedIn && user.userRole === "teacher" && (
+          <>
+            <Route path="/" element={<Home />}></Route>
+            <Route path='/Teacher' element={<Teacher />}></Route>
+          </>
+        )}
+
+        {user.loggedIn && user.userRole === "student" && (
+          <>
+            <Route path="/" element={<Home />}></Route>
+            <Route path='/Student' element={<Student />}></Route>
+          </>
+        )}
+        
+        
+        
       </Routes>
     </Router>
   );

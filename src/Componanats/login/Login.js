@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import './Login.css';
 
 import Signup from './Signup';
-import { setLogin } from '../../features/user/userSlice';
+import { setLogin, setUser } from '../../features/user/userSlice';
 
 
 
@@ -23,7 +23,7 @@ function Login() {
     function handleForm(event) {
         setLoginForm(loginForm => {
             return {... loginForm, [event.target.name]: event.target.value}
-        })
+        });
     }
 
     async function checkLogin(event) {
@@ -43,14 +43,14 @@ function Login() {
                 const text = await res.json();
 
                 if(localStorage.getItem("JWT") !== null) {
-                    localStorage.setItem("JWT", text);
+                    localStorage.setItem("JWT", text.JWT);
                 } else {
-                    localStorage.setItem("JWT", text);
+                    localStorage.setItem("JWT", text.JWT);
                 }
 
                 console.log(text);
 
-                dispatch(setLogin(true));
+                dispatch(setUser(text.user));
             break;
             case 404:
                 alert("email or password is wrong");

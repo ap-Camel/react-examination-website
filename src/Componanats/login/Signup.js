@@ -55,7 +55,9 @@ function Signup() {
                     alert("something went wrong, please try again later or contact our support staff");
                 break;
                 case 400:
-                    alert(await res.json());
+                    const object = (await res.json()).errors;
+                    const messages = Object.values(object);
+                    alert(messages);
                 break;
             }
         }

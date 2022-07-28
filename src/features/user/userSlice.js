@@ -4,7 +4,9 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 const initialState = {
     firstName: "",
     lastName: "",
-    role: "",
+    userRole: "",
+    userName: "",
+    pictureUrl: "",
     email: "",
     loggedIn: false
 }
@@ -17,8 +19,10 @@ const userSlice = createSlice({
         setUser: (state, {payload}) => {
             state.firstName = payload.firstName;
             state.lastName = payload.lastName;
-            state.role = payload.userType;
+            state.userRole = payload.userRole;
+            state.userName = payload.userName;
             state.email = payload.email;
+            state.pictureUrl = payload.pictureUrl;
             state.loggedIn = true;
         },
         setLogin: (state, {payload}) => {

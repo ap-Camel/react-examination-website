@@ -57,6 +57,19 @@
     border-radius: 10px;
 }
 
+.login-button {
+    position: absolute;
+    top: .75rem;
+    right: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    text-decoration: none;
+    color: white;
+}
+
 @media (max-width: 500px) {
     .navbar {
         flex-direction: column;
