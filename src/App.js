@@ -9,6 +9,7 @@ import Login from './Componanats/login/Login';
 import Signup from './Componanats/login/Signup';
 import Navbar from './Navbar';
 import Teacher from './Componanats/teacher/Teacher';
+import TeacherExams from './Componanats/teacher/TeacherExams';
 import Student from './Componanats/student/Student';
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <>
             <Route path="/" element={<Home />}></Route>
             <Route path='/Teacher' element={<Teacher />}></Route>
+            <Route path='/Exams' element={ <TeacherExams /> }></Route>
           </>
         )}
 

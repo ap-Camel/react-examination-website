@@ -29,6 +29,7 @@ function NavBar() {
                       {user.userRole === "teacher" && (
                         <>
                           <li><Link to="/teacher"  state={{from: location}} replace={false}> teacher </Link></li>
+                          <li><Link to="/Exams"  state={{from: location}} replace={false}> my exams </Link></li>
                         </>
                       )}
                       {user.userRole === "student" && (

@@ -43,12 +43,12 @@ function Login() {
                 const text = await res.json();
 
                 if(localStorage.getItem("JWT") !== null) {
-                    localStorage.setItem("JWT", text.JWT);
+                    localStorage.setItem("JWT", text.jwt);
                 } else {
-                    localStorage.setItem("JWT", text.JWT);
+                    localStorage.setItem("JWT", text.jwt);
                 }
 
-                console.log(text);
+                console.log(text.jwt);
 
                 dispatch(setUser(text.user));
             break;
