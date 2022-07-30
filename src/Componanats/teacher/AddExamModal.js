@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { toogle } from '../../features/modal/modalSlice';
 import { setLogin } from '../../features/user/userSlice';
+import useClickedOutside from "../../hooks/useClickedOuside";
 
 
 
@@ -76,21 +77,9 @@ function AddExamModal() {
         return true;
     }
 
-    let modalRef = React.useRef();
-
-    React.useEffect(() => {
-        let handler = (event) => {
-            if(!modalRef.current.contains(event.target)) {
-                dispatch(toogle());
-            }
-        };
-
-        document.addEventListener("mousedown", handler);
-
-        return () => {
-            document.removeEventListener("mousedown", handler);
-        };
-    }, []);
+    let modalRef = useClickedOutside(() => {
+        dispatch(toogle());
+    });
 
     return(
         <aside className="modal-container">

@@ -18,15 +18,6 @@ function Teacher() {
     const [latestTakenExams, setLatestTakenExams] = React.useState("");
     const [students, setStudents] = React.useState("");
 
-    function getExams(num) {
-        
-    }
-
-    React.useEffect({
-
-    }, [])
-
-
     return(
         <div className='wrapper'>
             <div className='cards-section-container'>
