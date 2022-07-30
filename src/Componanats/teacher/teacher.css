@@ -180,10 +180,17 @@
     gap: 0.5rem;
     overflow-x: scroll;
     overscroll-behavior-inline: contain;
+    text-decoration: none;
+    color: black;
 
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 }
+
+.exam-row-info:hover {
+    background-color: beige;
+} 
+
 
 
 .exam-row-info p {
@@ -218,4 +225,9 @@
 .odd {
     background-color: antiquewhite;
     background: antiquewhite;
+}
+
+.dateToOpen {
+    display: grid;
+    grid-auto-flow: column;
 }

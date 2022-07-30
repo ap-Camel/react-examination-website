@@ -12,15 +12,24 @@ function ExamEditModal() {
     const updateExam = useSelector(store => store.updateExam);
 
     const [updateExamForm, setUpdateExamForm] = React.useState("");
+    // const [checkbox, setCheckbox] = React.useState(false);
 
     function handleChange(event) {
-        setUpdateExamForm(updateExam => {
-            return {...updateExam, [event.target.name]: event.target.value};
-        })
+        const {name, value, type, checked } = event.target;
+        if(type === "checkbox") {
+            // setCheckbox(checked);
+        } else {
+            setUpdateExamForm(updateExamForm => {
+                return {...updateExamForm, [name]: value};
+            })
+        }
+        
     }
 
     async function handleSubmit(event) {
         event.preventDefault();
+
+        console.log(JSON.stringify(updateExamForm));
 
         const res = await fetch("https://localhost:7276/exam", {
             method: "PUT",
@@ -66,6 +75,20 @@ function ExamEditModal() {
         console.log(updateExam);
     }, [])
 
+    // React.useEffect(() => {
+    //     if(!checkbox) {
+    //         console.log("im in changing dateToOpen");
+    //         setUpdateExamForm(prevUpdateExamForm => {
+    //             return {...prevUpdateExamForm, dateToOpen: "0001-01-01T00:00:00"}
+    //         })
+    //     } else {
+    //         console.log("im in setting date");
+    //         setUpdateExamForm(prevUpdateExamForm => {
+    //             return {...prevUpdateExamForm, dateToOpen: new Date().setMonth(9, 1)}
+    //         })
+    //     }
+    // }, [checkbox])
+
     if(updateExamForm === "") {
         return (
             <div>
@@ -102,14 +125,14 @@ function ExamEditModal() {
                         placeholder="30"
                         type="number"
                     />
-                    <label>duration (minutes)</label>
-                    <div>
+                    {/* <label>date to open</label>
+                    <div className='dateToOpen'>
                         <input 
                         name="duration"
-                        value={updateExamForm.duration}
+                        value={checkbox}
                         onChange={handleChange}
                         placeholder="30"
-                        type="number"
+                        type="checkbox"
                         />
                         <input 
                         name="duration"
@@ -117,8 +140,9 @@ function ExamEditModal() {
                         onChange={handleChange}
                         placeholder="30"
                         type="number"
-                    />
-                    </div>
+                        disabled={!checkbox}
+                        />
+                    </div> */}
                     <label>passing value (%)</label>
                     <input 
                         name="passingValue"

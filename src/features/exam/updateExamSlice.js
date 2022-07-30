@@ -19,7 +19,7 @@ const updateExamSlice = createSlice({
     reducers: {
         setUpdateExam: (state, {payload}) => {
             console.log(payload);
-            state.ID = payload.ID;
+            state.ID = payload.id;
             state.title = payload.title;
             state.numOfQuestions = payload.numOfQuestions;
             state.dateToOpen = payload.dateToOpen;

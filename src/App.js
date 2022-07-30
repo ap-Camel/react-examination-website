@@ -11,6 +11,7 @@ import Navbar from './Navbar';
 import Teacher from './Componanats/teacher/Teacher';
 import TeacherExams from './Componanats/teacher/TeacherExams';
 import Student from './Componanats/student/Student';
+import ExamDetails from './Componanats/teacher/ExamDetails';
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
             <Route path="/" element={<Home />}></Route>
             <Route path='/Teacher' element={<Teacher />}></Route>
             <Route path='/Exams' element={ <TeacherExams /> }></Route>
+            <Route path='/Exams/Details/:id' element={ <ExamDetails /> }></Route>
           </>
         )}
 

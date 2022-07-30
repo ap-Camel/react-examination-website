@@ -70,11 +70,11 @@ function TeacherExams() {
             <div className="main">
                 <div className="utilities">
                     <SearchButton  placeholder="exams" data={exams} />
-                    <select>
+                    {/* <select>
                         <option>filter</option>
                         <option>ascending</option>
                         <option>decending</option>
-                    </select>
+                    </select> */}
                 </div>
                 <ScrollSync>
                     <div className="content">
@@ -101,7 +101,7 @@ function TeacherExams() {
                         </div>
                         {exams !== "" && exams.map((item,index) => {
                             return(
-                                <TeacherExamRow data={item} key={item.ID}/>
+                                <TeacherExamRow data={item} key={item.id}/>
                             );
                         })}
                     </div>

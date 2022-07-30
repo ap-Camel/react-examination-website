@@ -25,16 +25,16 @@ function NavBar() {
                   </a>
                   <div className="navbar-links">
                     <ul onClick={toogle}>
-                      <li><Link to="/"  state={{from: location}} replace={false} > home </Link></li>
+                      <li><Link to="/"  state={{from: location}} replace={true} > home </Link></li>
                       {user.userRole === "teacher" && (
                         <>
-                          <li><Link to="/teacher"  state={{from: location}} replace={false}> teacher </Link></li>
-                          <li><Link to="/Exams"  state={{from: location}} replace={false}> my exams </Link></li>
+                          <li><Link to="/teacher"  state={{from: location}} replace={true}> teacher </Link></li>
+                          <li><Link to="/Exams"  state={{from: location}} replace={true}> my exams </Link></li>
                         </>
                       )}
                       {user.userRole === "student" && (
                         <>
-                          <li><Link to="/student"  state={{from: location}} replace={false}> student </Link></li>
+                          <li><Link to="/student"  state={{from: location}} replace={true}> student </Link></li>
                         </>
                       )}
                     </ul>
@@ -42,7 +42,7 @@ function NavBar() {
                 </>
               )}
 
-              {!user.loggedIn && <Link to="/login" state={{from: location}} replace={false} className="login-button" >Login</Link>}
+              {!user.loggedIn && <Link to="/login" state={{from: location}} replace={true} className="login-button" >Login</Link>}
               
           </nav>
       </header>
