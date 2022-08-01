@@ -34,7 +34,7 @@ function SearchButton({placeholder, data}) {
 
 
     return(
-        <div ref={searchBoxRef} className="search">
+        <div ref={searchBoxRef} className="search" style={{"backgroundColor": "gray"}}>
             <div className="search-input">
                 <input 
                 type="text"

@@ -23,7 +23,7 @@ export default async function UseApi(url, method, body, callback) {
         break;
         case 204:
             alert("delete / update was successful");
-            callback(text);
+            // text ? callback(text) : callback() ;
         break;
         case 400:
             const object = (await res.json()).errors;

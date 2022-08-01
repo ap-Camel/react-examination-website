@@ -28,37 +28,57 @@ function Test() {
     let defaultAdd = {
         title: {
             name: "title",
-            default: "k",
+            default: "",
             type: "text"
         },
         numOfQuestions: {
             name: "number of questions",
             default: 10,
-            type: "text"
+            type: "number"
         },
         duration: {
             name: "duration",
             default: 60,
-            type: "text"
+            type: "number"
         },
         passingValue: {
             name: "passing value",
             default: 50,
-            type: "text"
+            type: "number"
         },
         numOfPoints: {
             name: "number of points",
             default: 10,
-            type: "text"
+            type: "number"
         }
     }
 
     let defaultEdit = {
-        title: "",
-        numOfQuestions: "",
-        duration: "",
-        passingValue: "",
-        numOfPoints: ""
+        title: {
+            name: "title",
+            default: "",
+            type: "text"
+        },
+        numOfQuestions: {
+            name: "number of questions",
+            default: 0,
+            type: "number"
+        },
+        duration: {
+            name: "duration",
+            default: 0,
+            type: "number"
+        },
+        passingValue: {
+            name: "passing value",
+            default: 0,
+            type: "number"
+        },
+        numOfPoints: {
+            name: "number of points",
+            default: 0,
+            type: "number"
+        }
     }
 
     return(

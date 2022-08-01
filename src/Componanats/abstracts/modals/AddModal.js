@@ -9,6 +9,29 @@ function AddModal({defaultAdd, url}) {
 
     const dispatch = useDispatch();
 
+    const [addItem, setAddItem] = React.useState(defaultAdd);
+    //const [row, setRow] = React.useState(Object.keys(addItem));
+    const [elements, setElements] = React.useState(Object.keys(addItem));
+
+    // React.useEffect(() => {
+    //     // setRow((prevRow) => {
+    //     //     let temp = [];
+    //     //     for(const key in addItem) {
+    //     //         temp.push(
+    //     //             <input 
+    //     //             name={addItem[key].name}
+    //     //             value={addItem[key].default}
+    //     //             onChange={handleChange}
+    //     //             placeholder="title"
+    //     //             type="text"
+    //     //             />
+    //     //         )
+    //     //     }
+    //     //     return temp;
+    //     // });
+    //     // setHasData(true);
+    // }, [])
+
     // const [addItem, setAddItem] = React.useState(() => {
     //     let temp = {}
     //     for(const key in defaultAdd){
@@ -16,14 +39,8 @@ function AddModal({defaultAdd, url}) {
     //     }
     //     return temp;
     // });
-    // const [row, setRow] = React.useState("");
-
+    
     // React.useEffect(() => {
-
-
-
-
-
 
     //     setRow([]);
     //     for(const key in addItem) {
@@ -59,36 +76,36 @@ function AddModal({defaultAdd, url}) {
         const {name, value, type, checked } = event.target;
         setAddItem(addItem => {
             return {...addItem, [name]: {
-                name: name,
+                name: addItem[name].name,
                 default: value,
                 type: type
             }};
         });
-        console.log({...addItem, [name]: {
-            name: name,
-            default: value,
-            type: type
-        }});
-        //console.log(defaultAdd);
         
     }
 
-    // async function handleSubmit(event) {
-    //     event.preventDefault();
+    async function handleSubmit(event) {
+        event.preventDefault();
 
-    //     if(checkInputFields) {
-    //        await UseApi(url, "POST", addItem, null);
-    //     }
-    // }
+        if(checkInputFields()) {
+            let temp = {};
+            elements.map(key => {
+                temp = {...temp, [key]: addItem[key].default}
+            });
+            console.log(temp);
+            await UseApi(url, "POST", JSON.stringify(temp), null);
+        }
+    }
 
-    // function checkInputFields() {
-    //     for(const key in addItem) {
-    //         if(!addItem[key]) {
-    //             alert("please fill in all of the fields");
-    //             break;
-    //         }
-    //     }
-    // }
+    function checkInputFields() {
+        for(const key in addItem) {
+            if(!addItem[key].default) {
+                alert("please fill in all of the fields");
+                return false;
+            }
+        }
+        return true;
+    }
 
     let modalRef = useClickedOutside(() => {
         dispatch(toogleAdd());
@@ -100,14 +117,26 @@ function AddModal({defaultAdd, url}) {
         );
     }
 
-    
-
     return(
         <aside className="modal-container">
             <div ref={modalRef} className='modal' onClick={() => {console.log("clicked modal")}}>
                 <form className="add-exam-form" onSubmit={handleSubmit}>
                     {
-                        //row
+                        elements.map(item => {
+                            return(
+                                <>
+                                    <label>{addItem[item].name}</label>
+                                    <input 
+                                    name={item}
+                                    value={addItem[item].default}
+                                    onChange={handleChange}
+                                    placeholder={defaultAdd[item].name}
+                                    type={defaultAdd[item].type}
+                                    />
+                                </>
+                                
+                            );
+                        })
                     }
                     {/* <label>title</label>
                     <input 

@@ -10,7 +10,7 @@ import ContentRow01 from "./ContentRow01";
 
 
 
-function ContentList01({defaultShow, content, urls}) {
+function ContentList01({defaultShow, content, urls, defaultEdit}) {
 
     return(
         <ScrollSync>
@@ -34,7 +34,7 @@ function ContentList01({defaultShow, content, urls}) {
                 </div>
                 {content !== "" && content.map(item => {
                     return(
-                        <ContentRow01 key={item.id} item={item} urls={urls} />
+                        <ContentRow01 key={item.id} item={item} urls={urls} defaultEdit={defaultEdit}/>
                     );
                 })}
             </div>

@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     addIsOpen: false,
-    updateIsOpen: false,
+    editIsOpen: false,
     deleteIsOpen: false
 }
 
@@ -16,7 +16,7 @@ const modalSlice = createSlice({
             state.addIsOpen = !state.addIsOpen;
         },
         toogleEdit: (state) => {
-            state.updateIsOpen = !state.updateIsOpen;
+            state.editIsOpen = !state.editIsOpen;
         },
         toogleDelete: (state) => {
             state.deleteIsOpen = !state.deleteIsOpen;
@@ -25,7 +25,7 @@ const modalSlice = createSlice({
             state.addIsOpen = !state.addIsOpen;
         },
         toogleUpdate: (state) => {
-            state.updateIsOpen = !state.updateIsOpen;
+            state.editIsOpen = !state.editIsOpen;
         },
     }
 });

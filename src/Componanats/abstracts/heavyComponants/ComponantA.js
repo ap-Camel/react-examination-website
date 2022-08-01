@@ -42,10 +42,10 @@ function ComponantA({urls, defaultShow, defaultAdd, defaultEdit}) {
     return(
         <div className="wrapper">
             {modal.addIsOpen && <AddModal key="addModel" defaultAdd={defaultAdd} url={urls.post} />}
-            {modal.editIsOpen && <EditModal key="editModal" />}
+            {modal.editIsOpen && <EditModal key="editModal" url={urls.put} />}
             <Heading01 key="examsHeading" heading="exams" />
             <Utilities01 key="examsUtilities" placeholder="exams" data={content}/>
-            <ContentList01 key="examsList" defaultShow={defaultShow} content={content} urls={urls}/>
+            <ContentList01 key="examsList" defaultShow={defaultShow} content={content} urls={urls} defaultEdit={defaultEdit}/>
         </div>
     );
 }
