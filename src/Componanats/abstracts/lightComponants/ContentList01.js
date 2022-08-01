@@ -7,10 +7,11 @@ import { toogle } from '../../../features/modal/modalSlice';
 import { setLogin } from '../../../features/user/userSlice';
 import ContentRow01 from "./ContentRow01";
 
-
-
-
 function ContentList01({defaultShow, content, urls, defaultEdit}) {
+
+    React.useEffect(() => {
+        console.log(content);
+    }, [])
 
     return(
         <ScrollSync>

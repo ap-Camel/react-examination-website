@@ -231,3 +231,18 @@
     display: grid;
     grid-auto-flow: column;
 }
+
+.content-details {
+    background-color: #617d98;
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+.details-element {
+    display: grid;
+    grid-auto-flow: column;
+    margin: 0;
+    padding: 0;
+}

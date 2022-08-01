@@ -11,20 +11,14 @@ import ContentList01 from "../lightComponants/ContentList01";
 import AddModal from "../modals/AddModal";
 import EditModal from "../modals/EditModal";
 
-import { toogle } from '../../../features/modal/modalSlice';
 import { setLogin } from '../../../features/user/userSlice';
 import UseApi from "../../../hooks/UseApi";
 
-function ComponantA({urls, defaultShow, defaultAdd, defaultEdit}) {
+function ComponantA({urls, defaultShow, defaultAdd, defaultEdit, heading}) {
 
     const modal = useSelector(store => store.modal);
-    const dispatch = useDispatch();
 
     const[content, setContent] = React.useState("");
-
-    function handleAddButton() {
-
-    }
 
     React.useEffect(() => {
         async function getContent() {
@@ -43,8 +37,8 @@ function ComponantA({urls, defaultShow, defaultAdd, defaultEdit}) {
         <div className="wrapper">
             {modal.addIsOpen && <AddModal key="addModel" defaultAdd={defaultAdd} url={urls.post} />}
             {modal.editIsOpen && <EditModal key="editModal" url={urls.put} />}
-            <Heading01 key="examsHeading" heading="exams" />
-            <Utilities01 key="examsUtilities" placeholder="exams" data={content}/>
+            <Heading01 key="examsHeading" heading={heading} />
+            <Utilities01 key="examsUtilities" placeholder={heading} data={content}/>
             <ContentList01 key="examsList" defaultShow={defaultShow} content={content} urls={urls} defaultEdit={defaultEdit}/>
         </div>
     );
